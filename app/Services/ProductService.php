@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\Eloquent\ProductRepositoryEloquent;
+use Illuminate\Database\Eloquent\Collection;
 use App\Models\Product;
 
 class ProductService
@@ -14,13 +15,12 @@ class ProductService
 		$this->repository = $repository;
 	}
 
-    public function create(array $data): Product
+    public function create(array $data): void
     {
-        return $this->repository->create($data);
+        $this->repository->create($data);
     }
 
-
-    public function list($columns)
+    public function list($columns): array
     {
         return $this->repository->all($columns)->toArray();
     }
@@ -29,4 +29,15 @@ class ProductService
     {
         return $this->repository->find($id);
     }
+
+    public function update(array $data, $id): void
+    {
+        $this->repository->update($data, $id);
+    }
+
+    public function delete($id): void
+    {
+        $this->repository->find($id)->delete();
+    }
+
 }

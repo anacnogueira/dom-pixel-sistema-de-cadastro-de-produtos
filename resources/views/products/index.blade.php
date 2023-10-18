@@ -12,6 +12,7 @@
 
 @section('js')
     <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src={{ asset("js/index-product.js") }}></script>
 @stop
 
 @section('content')

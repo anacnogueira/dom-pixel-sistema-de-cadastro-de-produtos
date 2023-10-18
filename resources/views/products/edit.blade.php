@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Criar Produto')
+@section('title', 'Editar Produto')
 
 @section('content_header')
-    <h1>Novo Produto</h1>
+    <h1>Editar Produto</h1>
 @stop
 
 @section('js')
@@ -13,12 +13,13 @@
 
 @section('content')
     <p>Os campos marcados com * são obrigatórios</p>
-    <form method="POST" action="/products">
+    <form method="POST" action="/products/{{$product['id']}}">
         @csrf
+        @method('PUT')
         <div class="row">
             <x-adminlte-input 
                 name="name"
-                value="{{ old('name') }}"
+                value="{{ old('name', $product['name']) }}"
                 label="Nome:*"
                 placeholder="Insira o nome do produto"
                 fgroup-class="col-md-12"/>
@@ -27,15 +28,16 @@
             <x-adminlte-textarea
                 name="description"
                 enable-old-support
-                value="{{ old('description') }}"
                 label="Descrição:"
                 placeholder="Insira a descrição do produto"
-                fgroup-class="col-md-12"/>
+                fgroup-class="col-md-12">
+                {{ old('description',$product['description']) }}
+            </x-adminlte-textarea>
         </div>
         <div class="row">
             <x-adminlte-input 
                 name="amount"
-                value="{{ old('amount') }}"
+                value="{{ old('amount',$product['amount']) }}"
                 label="Preço:*"
                 placeholder="Insira o preço do produto"
                 class="currency"
@@ -43,7 +45,7 @@
 
             <x-adminlte-input 
                 name="stock"
-                value="{{ old('stock') }}"
+                value="{{ old('stock',$product['stock']) }}"
                 label="Qtde estoque:*"
                 placeholder="Insira quatidade em estoque"
                 type="number"
