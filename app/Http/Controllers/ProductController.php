@@ -8,7 +8,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        //
+        echo 'Listar';
     }
 
     public function create()
