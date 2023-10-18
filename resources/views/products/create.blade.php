@@ -18,6 +18,7 @@
         <div class="row">
             <x-adminlte-input 
                 name="name"
+                value="{{ old('name') }}"
                 label="Nome:*"
                 placeholder="Insira o nome do produto"
                 fgroup-class="col-md-12"/>
@@ -25,6 +26,8 @@
         <div class="row">
             <x-adminlte-textarea
                 name="description"
+                enable-old-support
+                value="{{ old('description') }}"
                 label="Descrição:"
                 placeholder="Insira a descrição do produto"
                 fgroup-class="col-md-12"/>
@@ -32,6 +35,7 @@
         <div class="row">
             <x-adminlte-input 
                 name="amount"
+                value="{{ old('amount') }}"
                 label="Preço:*"
                 placeholder="Insira o preço do produto"
                 class="currency"
@@ -39,6 +43,7 @@
 
             <x-adminlte-input 
                 name="stock"
+                value="{{ old('stock') }}"
                 label="Qtde estoque:*"
                 placeholder="Insira quatidade em estoque"
                 type="number"

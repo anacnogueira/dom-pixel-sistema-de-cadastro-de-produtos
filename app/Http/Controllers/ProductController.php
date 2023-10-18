@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -11,15 +14,15 @@ class ProductController extends Controller
         echo 'Listar';
     }
 
-    public function create()
+    public function create(): View
     {
         return view('products.create');
     }
 
 
-    public function store(Request $request)
+    public function store(ProductRequest $request): RedirectResponse
     {
-        echo 'Salvo';
+        return redirect('/products');
     }
 
 
