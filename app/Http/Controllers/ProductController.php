@@ -19,7 +19,37 @@ class ProductController extends Controller
     
     public function index()
     {
-        echo 'Listar';
+        $products =  $this->service->list(['id','name','amount','stock']);
+           
+        $heads = [
+            'ID',
+            'Nome',
+            'Preço',
+            'Qtde Estoque',
+            ['label' => 'Ações', 'no-export' => true, 'width' => 5],
+        ];
+
+        $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Editar">
+                <i class="fa fa-lg fa-fw fa-pen"></i>
+            </button>';
+        $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Excluir">
+                  <i class="fa fa-lg fa-fw fa-trash"></i>
+              </button>';
+        $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Detalhes">
+                   <i class="fa fa-lg fa-fw fa-eye"></i>
+               </button>';
+
+        foreach($products as $key => $value) {
+            $products[$key]['actions'] = "<nobr>{$btnEdit} {$btnDelete} {$btnDetails}</nobr>";
+        }
+
+        $config = [
+            'data' => $products,
+            'order' => [[1, 'asc']],
+            'columns' => [null, null, null, null, ['orderable' => false]],
+        ];
+        
+        return view('products.index', compact('heads','config'));
     }
 
     public function create(): View

@@ -53,6 +53,5 @@
         <div class="row">
         <x-adminlte-button class="btn-flat" type="submit" label="Salvar" theme="success" icon="fas fa-lg fa-save"/>
         </div>
-    </form>
-    
+    </form>    
 @stop

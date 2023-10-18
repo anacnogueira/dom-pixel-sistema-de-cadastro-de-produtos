@@ -18,4 +18,10 @@ class ProductService
     {
         return $this->repository->create($data);
     }
+
+
+    public function list($columns)
+    {
+        return $this->repository->all($columns)->toArray();
+    }
 }
