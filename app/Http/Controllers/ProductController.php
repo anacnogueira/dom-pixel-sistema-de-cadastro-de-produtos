@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Http\Requests\ProductRequest;
+use App\Services\ProductService;
 
 class ProductController extends Controller
 {
+    protected $service;
+
+    public function __construct(ProductService $service)
+    {
+        $this->service = $service;
+    }
+    
     public function index()
     {
         echo 'Listar';
@@ -22,6 +30,10 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request): RedirectResponse
     {
+        $validated = $request->validated();
+
+        $this->service->create($validated);
+        
         return redirect('/products');
     }
 
