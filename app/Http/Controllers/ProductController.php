@@ -35,12 +35,15 @@ class ProductController extends Controller
         $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Excluir">
                   <i class="fa fa-lg fa-fw fa-trash"></i>
               </button>';
-        $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Detalhes">
-                   <i class="fa fa-lg fa-fw fa-eye"></i>
-               </button>';
+        $btnDetails = '';
 
         foreach($products as $key => $value) {
-            $products[$key]['actions'] = "<nobr>{$btnEdit} {$btnDelete} {$btnDetails}</nobr>";
+            $products[$key]['actions'] = "<nobr>{$btnEdit} {$btnDelete} 
+            
+                <a href='products/".$value['id']."' class='btn btn-xs btn-default text-teal mx-1 shadow' title='Exibir Detalhes'>
+                   <i class='fa fa-lg fa-fw fa-eye'></i>
+               </a>
+            </nobr>";
         }
 
         $config = [
@@ -70,7 +73,9 @@ class ProductController extends Controller
 
     public function show(string $id)
     {
-        //
+        $product = $this->service->findById($id);
+        
+        return view('products.show', compact('product'));
     }
 
 

@@ -24,4 +24,9 @@ class ProductService
     {
         return $this->repository->all($columns)->toArray();
     }
+
+    public function findById($id): Product
+    {
+        return $this->repository->find($id);
+    }
 }
