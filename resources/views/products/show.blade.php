@@ -39,6 +39,9 @@
                     </dd>    
                 </dl>
             </div>
+            <div class="btn-group">
+                @include('shared.back-button')
+            </div>
         </div>
     </div>
 </div>   

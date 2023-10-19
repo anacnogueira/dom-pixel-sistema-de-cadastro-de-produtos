@@ -50,8 +50,11 @@
                 min=0
                 fgroup-class="col-md-6"/>    
         </div>
-        <div class="row">
-        <x-adminlte-button class="btn-flat" type="submit" label="Salvar" theme="success" icon="fas fa-lg fa-save"/>
+        <div class="btn-group">
+            @include('shared.back-button')
+            <x-adminlte-button class="btn-flat" type="submit" label="Salvar" theme="success" icon="fas fa-lg fa-save"/>          
         </div>
-    </form>    
+    </form>
+
+    
 @stop
