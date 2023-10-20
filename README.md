@@ -14,7 +14,7 @@ git clone https://github.com/anacnogueira/dom-pixel-sistema-de-cadastro-de-produ
 
 -   Faça uma copia do arquivo .env.example com o nome .env:
 
-        cp env.example .env
+        cp .env.example .env
 
 -   Execute o seguinte comando no terminal para subir as imagens do projeto
 
@@ -52,6 +52,9 @@ Para garantir que isso esteja sempre disponível, você pode adicioná-lo ao arq
 Depois que o alias do shell tiver sido configurado, você poderá executar comandos Sail simplesmente digitando **sail**. A partir de agora você pode digitar o comando baixo para subir o container:
 
     sail up -d
+
+-   Dentro do arquivo .env, altere o nome da variavel DB_HOST para mysql:
+    DB_HOST=mysql
 
 -   Execute as migrações através do comando
 
