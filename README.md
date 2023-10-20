@@ -54,6 +54,7 @@ Depois que o alias do shell tiver sido configurado, você poderá executar coman
     sail up -d
 
 -   Dentro do arquivo .env, altere o nome da variavel DB_HOST para mysql:
+
     DB_HOST=mysql
 
 -   Execute as migrações através do comando
